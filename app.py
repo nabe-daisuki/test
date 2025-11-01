@@ -4,7 +4,7 @@ from faster_whisper import WhisperModel
 app = FastAPI()
 
 # faster-whisperモデルのロード
-model = WhisperModel("large-v3")
+model = WhisperModel("small")
 
 @app.post("/transcribe")
 async def transcribe(file: UploadFile = File(...)):
