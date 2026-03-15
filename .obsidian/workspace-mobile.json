@@ -8,57 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "27236b870542ef8f",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "グラフビュー"
-            }
-          },
-          {
-            "id": "ad12cc07c19774d9",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "iphone.base",
-                "viewName": "表"
-              },
-              "icon": "lucide-table",
-              "title": "iphone"
-            }
-          },
-          {
-            "id": "17e3aa357d49a6f8",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "iphone.base",
-                "viewName": "表"
-              },
-              "icon": "lucide-table",
-              "title": "iphone"
-            }
-          },
-          {
             "id": "03d7018d6c63a8d9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "Iphoneからのファイル.md",
-                "mode": "preview",
-                "source": false
+                "file": "iphone.base",
+                "viewName": "表"
               },
-              "icon": "lucide-file",
-              "title": "Iphoneからのファイル"
+              "icon": "lucide-table",
+              "title": "iphone"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -149,7 +111,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Iphoneからのファイル.md",
+            "file": "iphone.base",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -168,7 +130,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Iphoneからのファイル.md",
+            "file": "iphone.base",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -182,7 +144,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Iphoneからのファイル.md",
+            "file": "iphone.base",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -218,8 +180,8 @@
   },
   "active": "03d7018d6c63a8d9",
   "lastOpenFiles": [
-    "iphone.base",
     "Iphoneからのファイル.md",
+    "iphone.base",
     "Test ob.md",
     "無題のファイル 1.md",
     "2026-03-15.md"
