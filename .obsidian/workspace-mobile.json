@@ -13,14 +13,41 @@
             "state": {
               "type": "bases",
               "state": {
-                "file": "iphone.base",
+                "file": "iPhone.base",
                 "viewName": "表"
               },
               "icon": "lucide-table",
-              "title": "iphone"
+              "title": "iPhone"
+            }
+          },
+          {
+            "id": "f9d497bc14f1c860",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "iPhone.base",
+                "viewName": "表"
+              },
+              "icon": "lucide-table",
+              "title": "iPhone"
+            }
+          },
+          {
+            "id": "fa91decbfede98ca",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "iPhone.base",
+                "viewName": "表"
+              },
+              "icon": "lucide-table",
+              "title": "iPhone"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -111,7 +138,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "iphone.base",
+            "file": "無題のファイル.base",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -130,7 +157,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "iphone.base",
+            "file": "無題のファイル.base",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -144,7 +171,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "iphone.base",
+            "file": "無題のファイル.base",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -178,9 +205,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "03d7018d6c63a8d9",
+  "active": "fa91decbfede98ca",
   "lastOpenFiles": [
+    "Now.md",
+    "iPhone.base",
     "Iphoneからのファイル.md",
+    "無題のファイル.canvas",
     "iphone.base",
     "Test ob.md",
     "無題のファイル 1.md",

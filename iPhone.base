@@ -1,0 +1,5 @@
+views:
+  - type: table
+    name: 表
+  - type: list
+    name: ビュー
