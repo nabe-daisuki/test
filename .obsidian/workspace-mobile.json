@@ -45,9 +45,22 @@
               "icon": "lucide-table",
               "title": "iPhone"
             }
+          },
+          {
+            "id": "b46dc1ca69f6679b",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "iPhone.base",
+                "viewName": "表"
+              },
+              "icon": "lucide-table",
+              "title": "iPhone"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -205,10 +218,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fa91decbfede98ca",
+  "active": "b46dc1ca69f6679b",
   "lastOpenFiles": [
-    "Now.md",
+    "VR要件/VR要件.md",
+    "VR要件",
     "iPhone.base",
+    "Now.md",
     "Iphoneからのファイル.md",
     "無題のファイル.canvas",
     "iphone.base",
