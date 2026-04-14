@@ -38,14 +38,13 @@
             "id": "b7d7f776d61c8eaf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "無題のファイル.md",
-                "mode": "source",
-                "source": false
+                "file": "iPhone.base",
+                "viewName": "表"
               },
-              "icon": "lucide-file",
-              "title": "無題のファイル"
+              "icon": "lucide-table",
+              "title": "iPhone"
             }
           }
         ],
@@ -207,20 +206,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "de65d83bace4d4b7",
+  "active": "b7d7f776d61c8eaf",
   "lastOpenFiles": [
-    "ポスター参考/file_1776128929274.jpeg",
-    "ポスター参考/file_1776128937982.jpeg",
-    "ポスター参考/file_1776128942793.jpeg",
-    "ポスター参考/file_1776128945885.jpeg",
-    "ポスター参考/file_1776128948493.jpeg",
-    "ポスター参考/file_1776128954594.jpeg",
-    "ポスター参考/file_1776128958589.jpeg",
-    "ポスター参考/file_1776128961431.jpeg",
-    "ポスター参考/file_1776128977175.jpeg",
-    "ポスター参考/file_1776128982181.jpeg",
-    "ポスター参考/file_1776128988922.jpeg",
+    "Webについてスライド/file_1776136010896.jpg",
+    "Webについてスライド/file_1776136005174.jpg",
+    "Webについてスライド/file_1776136000679.jpg",
+    "Webについてスライド/file_1776135990598.jpg",
+    "Webについてスライド/file_1776135971382.jpg",
+    "Webについてスライド/file_1776135949828.jpg",
+    "Webについてスライド/file_1776135935753.jpg",
+    "Webについてスライド/file_1776135931473.jpg",
+    "Webについてスライド/file_1776135925770.jpg",
+    "Webについてスライド/file_1776135918491.jpg",
+    "Webについてスライド/file_1776135913090.jpg",
     "無題のファイル.md",
+    "Webについてスライド",
     "iPhone.base",
     "pip/pip1.md",
     "無題のファイル 1.md",
