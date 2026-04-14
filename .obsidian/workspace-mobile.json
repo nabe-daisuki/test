@@ -11,14 +11,13 @@
             "id": "549378774b4befba",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "無題のファイル 2.md",
-                "mode": "source",
-                "source": false
+                "file": "無題のファイル.base",
+                "viewName": "表"
               },
-              "icon": "lucide-file",
-              "title": "無題のファイル 2"
+              "icon": "lucide-table",
+              "title": "無題のファイル"
             }
           }
         ]
@@ -182,6 +181,7 @@
   "active": "549378774b4befba",
   "lastOpenFiles": [
     "無題のファイル 2.md",
+    "無題のファイル.base",
     "iPhone.base",
     "無題のファイル 1.md",
     "Webについてのスライド",
