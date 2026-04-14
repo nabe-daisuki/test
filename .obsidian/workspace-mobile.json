@@ -19,8 +19,37 @@
               "icon": "lucide-table",
               "title": "iPhone"
             }
+          },
+          {
+            "id": "402813210a81e52f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "無題のファイル.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "無題のファイル"
+            }
+          },
+          {
+            "id": "b7d7f776d61c8eaf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "無題のファイル.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "無題のファイル"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -178,21 +207,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "03d7018d6c63a8d9",
+  "active": "b7d7f776d61c8eaf",
   "lastOpenFiles": [
-    "file_1776128942793.jpg",
-    "file_1776128948493.jpg",
-    "file_1776128945885.jpg",
-    "file_1776128937982.jpg",
-    "file_1776128929274.jpg",
-    "iPhone.base",
-    "file_1776128977175.jpg",
-    "file_1776128954594.jpg",
-    "file_1776128958589.jpg",
-    "file_1776128961431.jpg",
-    "file_1776128982181.jpg",
-    "pip/pip1.md",
+    "file_1776128929274.jpeg",
+    "file_1776128937982.jpeg",
+    "file_1776128942793.jpeg",
+    "file_1776128945885.jpeg",
+    "file_1776128948493.jpeg",
+    "file_1776128954594.jpeg",
+    "file_1776128958589.jpeg",
+    "file_1776128961431.jpeg",
+    "file_1776128977175.jpeg",
+    "file_1776128982181.jpeg",
+    "file_1776128988922.jpeg",
     "無題のファイル.md",
+    "iPhone.base",
+    "pip/pip1.md",
     "無題のファイル 1.md",
     "ポートについて.md",
     "あいう",
