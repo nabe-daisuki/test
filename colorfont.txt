@@ -1,0 +1,192 @@
+Option Explicit
+
+'================================================================
+' 正規表現でマッチした文字列部分の色を変更（文字列は変更しない）
+' 引数:
+'   targetCell : 対象セル（Range型、単一セル）
+'   pattern    : 正規表現パターン
+'   fontColor  : 適用する文字色（RGB値またはXlRgbColor定数）
+'   ignoreCase : 大文字小文字を無視するか（省略時: False）
+'================================================================
+Public Sub ColorMatchedText( _
+    ByVal targetCell As Range, _
+    ByVal pattern As String, _
+    ByVal fontColor As Long, _
+    Optional ByVal ignoreCase As Boolean = False _
+)
+    Dim regEx As Object
+    Dim matches As Object
+    Dim match As Object
+    Dim cellText As String
+    
+    ' 入力検証
+    If targetCell Is Nothing Then Exit Sub
+    If targetCell.Cells.Count > 1 Then
+        Err.Raise 5, "ColorMatchedText", "単一セルのみ指定可能です。範囲処理にはColorMatchedTextInRangeを使用してください。"
+    End If
+    
+    ' 数式セルは処理対象外（Charactersプロパティが使用不可のため）
+    If targetCell.HasFormula Then Exit Sub
+    
+    ' セルの値を文字列として取得
+    If IsEmpty(targetCell.Value) Or IsError(targetCell.Value) Then Exit Sub
+    cellText = CStr(targetCell.Value)
+    If Len(cellText) = 0 Then Exit Sub
+    
+    ' 正規表現オブジェクトの設定
+    Set regEx = CreateObject("VBScript.RegExp")
+    With regEx
+        .Global = True
+        .IgnoreCase = ignoreCase
+        .Pattern = pattern
+    End With
+    
+    ' マッチング実行
+    Set matches = regEx.Execute(cellText)
+    If matches.Count = 0 Then Exit Sub
+    
+    ' 各マッチ箇所の文字色を変更
+    For Each match In matches
+        ' 重要：VBScriptのFirstIndexは0始まり、ExcelのCharactersは1始まりのため+1が必要
+        targetCell.Characters( _
+            Start:=match.FirstIndex + 1, _
+            Length:=match.Length _
+        ).Font.Color = fontColor
+    Next match
+End Sub
+
+'================================================================
+' 範囲内の全セルに対して正規表現文字色変更を適用
+' 引数:
+'   targetRange : 対象範囲（複数セル可）
+'   pattern     : 正規表現パターン
+'   fontColor   : 適用する文字色
+'   ignoreCase  : 大文字小文字を無視するか（省略時: False）
+'================================================================
+Public Sub ColorMatchedTextInRange( _
+    ByVal targetRange As Range, _
+    ByVal pattern As String, _
+    ByVal fontColor As Long, _
+    Optional ByVal ignoreCase As Boolean = False _
+)
+    Dim cell As Range
+    
+    For Each cell In targetRange
+        ' 各セルを個別に処理（エラーが発生しても他のセルの処理を継続）
+        On Error Resume Next
+        Call ColorMatchedText(cell, pattern, fontColor, ignoreCase)
+        On Error GoTo 0
+    Next cell
+End Sub
+
+'================================================================
+' セル内の全文字色をリセット（再処理前の準備用）
+' 引数:
+'   targetCell : 対象セル
+'   resetColor : リセット後の色（省略時: 自動色）
+'================================================================
+Public Sub ResetCellFontColor( _
+    ByVal targetCell As Range, _
+    Optional ByVal resetColor As Variant _
+)
+    Dim cellText As String
+    
+    If targetCell.HasFormula Then Exit Sub
+    If IsEmpty(targetCell.Value) Or IsError(targetCell.Value) Then Exit Sub
+    
+    cellText = CStr(targetCell.Value)
+    If Len(cellText) = 0 Then Exit Sub
+    
+    ' 全文字の色をリセット
+    If IsMissing(resetColor) Then
+        targetCell.Characters(1, Len(cellText)).Font.ColorIndex = xlColorIndexAutomatic
+    Else
+        targetCell.Characters(1, Len(cellText)).Font.Color = CLng(resetColor)
+    End If
+End Sub
+
+'================================================================
+' 範囲内の全セルの文字色をリセット
+'================================================================
+Public Sub ResetRangeFontColor( _
+    ByVal targetRange As Range, _
+    Optional ByVal resetColor As Variant _
+)
+    Dim cell As Range
+    
+    For Each cell In targetRange
+        On Error Resume Next
+        If IsMissing(resetColor) Then
+            Call ResetCellFontColor(cell)
+        Else
+            Call ResetCellFontColor(cell, resetColor)
+        End If
+        On Error GoTo 0
+    Next cell
+End Sub
+
+
+'================================================================
+' 使用例1：+項目を青、-項目を赤に色分け
+' 対象セル例："+課長-次長-課長-●●課+▽▽部"
+'================================================================
+Public Sub ExamplePlusMinusColoring()
+    Dim targetCell As Range
+    
+    ' 対象セルを指定
+    Set targetCell = ThisWorkbook.Worksheets("Sheet1").Range("A1")
+    
+    ' セルに値が入っていることを確認
+    If IsEmpty(targetCell.Value) Then
+        targetCell.Value = "+課長-次長-課長-●●課+▽▽部"
+    End If
+    
+    ' 処理前にリセット（再実行時の色重複を防ぐ）
+    Call ResetCellFontColor(targetCell)
+    
+    ' 1回目：「+」で始まる項目を青色に
+    ' パターン解説：\+[^+-]+ = "+"記号 + "+"と"-"以外の文字が1文字以上
+    Call ColorMatchedText(targetCell, "\+[^+-]+", RGB(0, 112, 192))
+    
+    ' 2回目：「-」で始まる項目を赤色に  
+    ' パターン解説：\-[^+-]+ = "-"記号 + "+"と"-"以外の文字が1文字以上
+    Call ColorMatchedText(targetCell, "\-[^+-]+", RGB(192, 0, 0))
+    
+    MsgBox "色分け完了：+項目は青、-項目は赤になりました", vbInformation
+End Sub
+
+'================================================================
+' 使用例2：記号のみに色を付ける（より細かい制御）
+'================================================================
+Public Sub ExampleSymbolOnlyColoring()
+    Dim targetCell As Range
+    Set targetCell = ThisWorkbook.Worksheets("Sheet1").Range("A1")
+    
+    Call ResetCellFontColor(targetCell)
+    
+    ' "+"記号のみを青色に
+    Call ColorMatchedText(targetCell, "\+", RGB(0, 0, 255))
+    
+    ' "-"記号のみを赤色に
+    Call ColorMatchedText(targetCell, "\-", RGB(255, 0, 0))
+End Sub
+
+'================================================================
+' 使用例3：範囲全体に適用
+'================================================================
+Public Sub ExampleRangeColoring()
+    Dim targetRange As Range
+    Set targetRange = ThisWorkbook.Worksheets("Sheet1").Range("A1:A10")
+    
+    ' 範囲全体をリセット
+    Call ResetRangeFontColor(targetRange)
+    
+    ' +項目を青色に
+    Call ColorMatchedTextInRange(targetRange, "\+[^+-]+", RGB(0, 112, 192))
+    
+    ' -項目を赤色に
+    Call ColorMatchedTextInRange(targetRange, "\-[^+-]+", RGB(192, 0, 0))
+    
+    MsgBox "範囲 " & targetRange.Address & " の色分けが完了しました", vbInformation
+End Sub
+
